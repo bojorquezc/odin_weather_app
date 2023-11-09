@@ -116,7 +116,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconsole.log('Webpack test');\n\n\n//# sourceURL=webpack://odin_template/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _weather_logic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather_logic */ \"./src/weather_logic.js\");\n/* eslint-disable no-console */\n\n\n\n// console.log(fetchedLocation);\n(0,_weather_logic__WEBPACK_IMPORTED_MODULE_1__.getCurrentWeather)();\n\n\n//# sourceURL=webpack://odin_template/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/weather_logic.js":
+/*!******************************!*\
+  !*** ./src/weather_logic.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getCurrentWeather: () => (/* binding */ getCurrentWeather)\n/* harmony export */ });\n/* eslint-disable import/prefer-default-export */\n/* eslint-disable import/no-mutable-exports */\n/* eslint-disable prefer-const */\n/* eslint-disable no-console */\n// https://www.weatherapi.com/ key used for testing purposes\nconst weatherKey = 'aa5d5e7c5a884934b6933933230911';\n\n// APP STARTS WITH QUERY OF TIJUANA, MEXICO\nlet currentLocation = {\n  name: 'Tijuana',\n  region: '',\n  country: '',\n  tempC: 0.1,\n  tempF: 0.1,\n  conditionText: '',\n  conditionIcon: '',\n  windKPH: 0.1,\n  humidity: 0,\n};\n\n// PROCESS DATA FROM CURRENT WEATHER API\nfunction processCurrentWeather(data) {\n  currentLocation = {\n    name: data.location.name,\n    region: data.location.region,\n    country: data.location.country,\n    tempC: data.current.temp_c,\n    tempF: data.current.temp_f,\n    conditionText: data.current.condition.text,\n    conditionIcon: data.current.condition.icon,\n    windKPH: data.current.wind_kph,\n    humidity: data.current.humidity,\n  };\n  console.log(currentLocation);\n}\n\n// ASYNC FUNCTION TO FETCH API DATA\nasync function getCurrentWeather() {\n  try {\n    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${currentLocation.name}`, { mode: 'cors' });\n    const weatherData = await response.json();\n    processCurrentWeather(weatherData);\n  } catch (error) {\n    console.log(error);\n  }\n}\n\n\n\n\n//# sourceURL=webpack://odin_template/./src/weather_logic.js?");
 
 /***/ })
 
