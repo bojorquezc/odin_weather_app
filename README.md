@@ -25,11 +25,15 @@ A search field will be added to allow the user to search for their desired locat
 
 #### Main Info Card
 Realtime API variables to display
-*temp_c* - Temperature in celsius
-*temp_f* - Temperature in fahrenheit
-*condition:text* - Weather condition text
-*condition:icon* - Weather icon url
-*wind_kph* - Wind speed in kilometer per hour
+*name* string - Location name
+*region* string - Region or stateo of location
+*country* string - Location country
+*temp_c* decimal - Temperature in celsius
+*temp_f* decimal - Temperature in fahrenheit
+*condition:text* string - Weather condition text
+*condition:icon* string - Weather icon url
+*wind_kph* decimal - Wind speed in kilometer per hour
+*humidity* int - Humidity as percentage
 
 #### 3 Day Forecast Section
 Forecast API variables to display
