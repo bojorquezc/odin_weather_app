@@ -1,8 +1,11 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable prefer-const */
 /* eslint-disable no-console */
+
+import { updateCurrentLocationCard } from './weather_view';
 
 // https://www.weatherapi.com/ key used for testing purposes
 const weatherKey = 'aa5d5e7c5a884934b6933933230911';
@@ -20,13 +23,18 @@ let currentLocation = {
   humidity: 0,
 };
 
+// SEARCH FUNCTIONALITY
+const search = {
+  input: document.querySelector('#search_input'),
+  button: document.querySelector('.search_button'),
+};
+
 function passSearchValue() {
-  const searchInput = document.querySelector('#search_input');
-  currentLocation.name = searchInput.value;
+  currentLocation.name = search.input.value;
   getCurrentWeather();
 }
-const searchButton = document.querySelector('.search_button');
-searchButton.addEventListener('click', passSearchValue);
+
+search.button.addEventListener('click', passSearchValue);
 
 // PROCESS DATA FROM CURRENT WEATHER API
 function processCurrentWeather(data) {
@@ -41,6 +49,7 @@ function processCurrentWeather(data) {
     windKPH: data.current.wind_kph,
     humidity: data.current.humidity,
   };
+  updateCurrentLocationCard();
   console.log(currentLocation);
 }
 
@@ -57,4 +66,5 @@ async function getCurrentWeather() {
 
 export {
   getCurrentWeather,
+  currentLocation,
 };
