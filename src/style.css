@@ -41,6 +41,7 @@ body {
 .main_app_container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
@@ -54,7 +55,7 @@ body {
 .search_container {
     display: flex;
     flex-direction: column;
-    padding: 2rem 0 2rem 0;
+    padding: 2rem 0 1rem 0;
     width: 250px;
 }
 
@@ -76,8 +77,18 @@ body {
     height: 2rem;
 }
 
+.temp_switch_container {
+    padding: 1rem 0 1rem 0;
+    text-align: center;
+}
+
+.temp_checkbox_message {
+    font-size: 0.8rem;
+}
+
 .column_1_title {
     padding-bottom: 1rem;
+    text-align: center;
 }
 
 .current_weather_container {
@@ -128,6 +139,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.column_2_title {
+    text-align: center;
 }
 
 .forecast_card {

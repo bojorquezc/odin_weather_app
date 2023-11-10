@@ -46,6 +46,11 @@ function passSearchValue() {
 }
 
 search.button.addEventListener('click', passSearchValue);
+search.input.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    passSearchValue();
+  }
+});
 
 // PROCESS DATA FROM CURRENT WEATHER API
 function processCurrentWeather(data) {
@@ -73,7 +78,7 @@ function processForecastWeather(data) {
       maxTempC: data.forecast.forecastday[index].day.maxtemp_c,
       maxTempF: data.forecast.forecastday[index].day.maxtemp_f,
       minTempC: data.forecast.forecastday[index].day.mintemp_c,
-      minTempF: data.forecast.forecastday[index].day.mintemp_c,
+      minTempF: data.forecast.forecastday[index].day.mintemp_f,
     };
     forecastArray.push(forecastLocation);
   }
