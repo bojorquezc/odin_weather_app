@@ -5,9 +5,9 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-console */
 
-import { updateCurrentLocationCard } from './weather_view';
+import { updateCurrentLocationCard, updateForecastLocationCard } from './weather_view';
 
-// https://www.weatherapi.com/ key used for testing purposes
+// https://www.weatherapi.com/ KEY USED FOR TESTING PURPOSES
 const weatherKey = 'aa5d5e7c5a884934b6933933230911';
 
 // APP STARTS WITH QUERY OF TIJUANA, MEXICO
@@ -23,6 +23,16 @@ let currentLocation = {
   humidity: 0,
 };
 
+let forecastLocation = {
+  date: '',
+  maxTempC: 0.1,
+  maxTempF: 0.1,
+  minTempC: 0.1,
+  minTempF: 0.1,
+};
+
+let forecastArray = [];
+
 // SEARCH FUNCTIONALITY
 const search = {
   input: document.querySelector('#search_input'),
@@ -32,6 +42,7 @@ const search = {
 function passSearchValue() {
   currentLocation.name = search.input.value;
   getCurrentWeather();
+  getForecastWeather();
 }
 
 search.button.addEventListener('click', passSearchValue);
@@ -53,7 +64,23 @@ function processCurrentWeather(data) {
   console.log(currentLocation);
 }
 
-// ASYNC FUNCTION TO FETCH API DATA
+// PROCESS DATA FROM FORECAST WEATHER API
+function processForecastWeather(data) {
+  forecastArray = [];
+  for (let index = 0; index <= 2; index += 1) {
+    forecastLocation = {
+      date: data.forecast.forecastday[index].date,
+      maxTempC: data.forecast.forecastday[index].day.maxtemp_c,
+      maxTempF: data.forecast.forecastday[index].day.maxtemp_f,
+      minTempC: data.forecast.forecastday[index].day.mintemp_c,
+      minTempF: data.forecast.forecastday[index].day.mintemp_c,
+    };
+    forecastArray.push(forecastLocation);
+  }
+  updateForecastLocationCard();
+}
+
+// ASYNC FUNCTION TO FETCH CURRENT WEATHER DATA
 async function getCurrentWeather() {
   try {
     const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${currentLocation.name}`, { mode: 'cors' });
@@ -64,7 +91,20 @@ async function getCurrentWeather() {
   }
 }
 
+// ASYNC FUNCTION TO FETCH FORECAST WEATHER DATA
+async function getForecastWeather() {
+  try {
+    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${currentLocation.name}&days=3`, { mode: 'cors' });
+    const weatherData = await response.json();
+    processForecastWeather(weatherData);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export {
   getCurrentWeather,
+  getForecastWeather,
   currentLocation,
+  forecastArray,
 };

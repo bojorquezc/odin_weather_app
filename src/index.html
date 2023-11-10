@@ -5,33 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Serif Display">
     <title>Weather App</title>
 </head>
 
 <body>
-    <div class="main_app_container">
+    <div class="app_title_container">
         <h1 class="app_title">Weather App</h1>
-        <div class="search_container">
-            <label for="search">Enter Location:</label>
-            <input type="text" id="search_input">
-            <button class="search_button">Get Current Weather</button>
-        </div>
-        <div class="current_weather_container">
-            <div class="ct_location_name">Tijuana</div>
-            <div class="ct_region_country_container">
-                <div class="ct_region_name">Baja California</div>
-                <div class="ct_country_name">Mexico</div>
-            </div>
-            <div class="ct_temperature_c_container">
-                <div class="ct_temperature_c">24<span>°</span></div>
-            </div>
-            <hr>
-            <div class="ct_condition_container">
-                <div class="ct_condition_text">Sunny</div>
-                <div><img class="ct_condition_icon" src="" alt="weather icon"></div>
-            </div>
-        </div>
     </div>
+    <div class="search_container">
+        <label for="search">Enter Location:</label>
+        <input type="text" id="search_input">
+        <button class="search_button">Get Weather</button>
+    </div>
+    <div class="main_app_container">
+
+        <div class="column_1">
+            <div class="column_1_title">Current Weather</div>
+            <div class="current_weather_container">
+                <div class="ct_location_name"></div>
+                <div class="ct_region_country_container">
+                    <div class="ct_region_name"></div>
+                    <div class="ct_country_name"></div>
+                </div>
+                <div class="ct_temperature_c_container">
+                    <div class="ct_temperature_c"></div>
+                </div>
+                <hr>
+                <div class="ct_condition_container">
+                    <div class="ct_condition_text"></div>
+                    <div><img class="ct_condition_icon" src="" alt="weather icon"></div>
+                </div>
+                <div class="additional_details_container">
+                    <div class="ct_wind_container">
+                        <div class="ct_wind_title details_subtitle">Wind</div>
+                        <div class="ct_wind"></div>
+                    </div>
+                    <div class="ct_humidity_container">
+                        <div class="ct_humidity_title details_subtitle">Humidity</div>
+                        <div class="ct_humidity"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column_2">
+            <div class="column_2_title">Forecast</div>
+            <div class="forecast_container">
+            </div>
+            
+        </div>
+
     </div>
 </body>
 
