@@ -89,7 +89,7 @@ function processForecastWeather(data) {
 // ASYNC FUNCTION TO FETCH CURRENT WEATHER DATA
 async function getCurrentWeather() {
   try {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${currentLocation.name}`, { mode: 'cors' });
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${currentLocation.name}`, { mode: 'cors' });
     const weatherData = await response.json();
     processCurrentWeather(weatherData);
   } catch (error) {
@@ -100,7 +100,7 @@ async function getCurrentWeather() {
 // ASYNC FUNCTION TO FETCH FORECAST WEATHER DATA
 async function getForecastWeather() {
   try {
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${currentLocation.name}&days=3`, { mode: 'cors' });
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${currentLocation.name}&days=3`, { mode: 'cors' });
     const weatherData = await response.json();
     processForecastWeather(weatherData);
   } catch (error) {
