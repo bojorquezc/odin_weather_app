@@ -72,6 +72,7 @@ function updateForecastLocationCard() {
   }
 }
 
+// FUNCTIONALITY FOR UNIT CONVERSION
 function updateUnits() {
   updateCurrentLocationCard();
   updateForecastLocationCard();

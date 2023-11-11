@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./toggle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Serif Display">
     <title>Weather App</title>
 <script defer src="bundle.js"></script></head>
@@ -18,10 +17,13 @@
         <label for="search">Enter Location:</label>
         <input type="text" id="search_input">
         <button class="search_button">Get Weather</button>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
+    </div>
+    <div class="temp_switch_container">
+        <label class="temp_switch">
+            <select id="temp_select">
+                <option value="celsius">Celsius (°C)</option>
+                <option value="fahrenheit">Fahrenheit (°F)</option>
+            </select>
     </div>
     <div class="main_app_container">
 
