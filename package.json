@@ -1,7 +1,7 @@
 {
-  "name": "odin_template",
+  "name": "odin_weather_app",
   "version": "1.0.0",
-  "description": "Template repo for projects using webpack, ESLint, gitignore (node_modules)",
+  "description": "Weather app created with vanilla JS",
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
