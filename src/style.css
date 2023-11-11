@@ -82,8 +82,9 @@ body {
     text-align: center;
 }
 
-.temp_checkbox_message {
-    font-size: 0.8rem;
+#temp_select {
+    padding: 0.3rem;
+    background-color: #faebd7;
 }
 
 .column_1_title {

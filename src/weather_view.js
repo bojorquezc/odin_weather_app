@@ -73,19 +73,8 @@ function updateForecastLocationCard() {
 }
 
 function updateUnits() {
-  // const maxNodeList = document.querySelectorAll('.forecast_max');
-  if (tempSelect.value === 'celsius') {
-    currentWeather.tempC.textContent = `${Math.round(currentLocation.tempC)}°`;
-  } else {
-    currentWeather.tempC.textContent = `${Math.round(currentLocation.tempF)}°`;
-  }
-
-  // for (const node of maxNodeList) {
-  //   for (const day of forecastArray) {
-  //     node.textContent = day.maxTempC;
-  //     console.log(node);
-  //   }
-  // }
+  updateCurrentLocationCard();
+  updateForecastLocationCard();
 }
 
 tempSelect.addEventListener('change', updateUnits);

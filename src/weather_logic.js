@@ -74,13 +74,14 @@ function processForecastWeather(data) {
   forecastArray = [];
   for (let index = 0; index <= 2; index += 1) {
     forecastLocation = {
-      date: data.forecast.forecastday[index].date,
+      date: new Date(data.forecast.forecastday[index].date.replace(/-/g, '/')),
       maxTempC: data.forecast.forecastday[index].day.maxtemp_c,
       maxTempF: data.forecast.forecastday[index].day.maxtemp_f,
       minTempC: data.forecast.forecastday[index].day.mintemp_c,
       minTempF: data.forecast.forecastday[index].day.mintemp_f,
     };
     forecastArray.push(forecastLocation);
+    console.log(forecastLocation);
   }
   updateForecastLocationCard();
 }
